@@ -1,5 +1,6 @@
 - name: Installing i3 desktop environment.
-  include_tasks: 
+  include_tasks: "{{ item }}"
+  loop:
     - dunst.yml
     - i3.yml
     - picom.yml

@@ -1,5 +1,6 @@
+- include_tasks: dependencies.yml
+
 - name: Install Neovim.
-  include_tasks: dependencies.yml
   package:
     name: neovim
     state: present

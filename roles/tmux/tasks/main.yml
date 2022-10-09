@@ -1,5 +1,6 @@
+- include_tasks: dependencies.yml
+
 - name: Install Tmux.
-  include_tasks: dependencies.yml
   package:
     name: tmux
     state: present

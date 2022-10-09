@@ -1,5 +1,5 @@
+- include_tasks: dependencies.yml
 - name: Install Zsh.
-  include_tasks: dependencies.yml
   package:
     name: zsh
     state: present

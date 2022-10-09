@@ -2,6 +2,7 @@
   git:
     repo: https://github.com/ryanoasis/nerd-fonts.git
     dest: /tmp/nerd_fonts
+    version: master
     depth: 1
 
 - name: Insatlling Nerd Fonts.

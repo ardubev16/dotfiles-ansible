@@ -1,5 +1,6 @@
+- include_tasks: dependencies.yml
+
 - name: Ensure dotfiles repository is cloned locally.
-  include_tasks: dependencies.yml
   git:
     repo: "{{ dotfiles_repo }}"
     dest: "{{ dotfiles_repo_local }}"
