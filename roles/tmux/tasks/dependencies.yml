@@ -1,0 +1,7 @@
+- name: Install Tmux dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - tmuxp

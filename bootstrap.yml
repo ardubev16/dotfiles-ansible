@@ -1,0 +1,18 @@
+- name: Bootstrap Dotfiles
+  hosts: localhost
+  vars:
+    dotfiles_repo: "https://github.com/ardubev16/.dotfiles"
+    dotfiles_repo_version: ansible
+    dotfiles_repo_local: "~/.dotfiles"
+    config_path: "~/.config"
+    desktop_env: i3
+  roles:
+    - dotfiles
+    - alacritty
+    - git
+    - i3-xorg
+    - nvim
+    - tmux
+    # - vim
+    - zathura
+    - zsh

@@ -1,0 +1,13 @@
+- name: Install picom.
+  package:
+    name: picom
+    state: present
+  become: yes
+
+- name: Install picom configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/i3-xorg/picom.conf"
+    path: "{{ config_path }}/picom.conf"
+    state: link
+    follow: false
+    force: yes

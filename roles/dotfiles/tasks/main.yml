@@ -1,0 +1,8 @@
+- name: Ensure dotfiles repository is cloned locally.
+  include_tasks: dependencies.yml
+  git:
+    repo: "{{ dotfiles_repo }}"
+    dest: "{{ dotfiles_repo_local }}"
+    version: "{{ dotfiles_repo_version }}"
+    # accept_hostkey: "{{ dotfiles_repo_accept_hostkey }}"
+  # become: false

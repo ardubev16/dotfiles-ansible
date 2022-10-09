@@ -1,0 +1,19 @@
+- name: Install Neovim dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - black
+    - clang_format
+    - cppcheck
+    - dictionary
+    - eslint_d
+    - flake8
+    - prettier
+    - proselint
+    - pynvim
+    - shellcheck
+    - shellharden
+    - stylua
+    - tidy

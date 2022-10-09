@@ -1,0 +1,20 @@
+- name: Install Tmux.
+  include_tasks: dependencies.yml
+  package:
+    name: tmux
+    state: present
+  become: yes
+
+- name: Install Tmux configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/tmux"
+    path: "{{ config_path }}/tmux"
+    state: link
+    follow: false
+    force: yes
+
+- name: Install Tmux scripts.
+  file:
+    src: "{{ item }}"
+    path: "~/.local/bin/"
+  loop: "{{ lookup('fileglob', '{{ dotfiles_repo_local}}/tmux/bin/*', wantlist=True)}}"

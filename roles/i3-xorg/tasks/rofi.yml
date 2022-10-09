@@ -1,0 +1,13 @@
+- name: Install rofi.
+  package:
+    name: rofi
+    state: present
+  become: yes
+
+- name: Install rofi configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/i3-xorg/rofi"
+    path: "{{ config_path }}/rofi"
+    state: link
+    follow: false
+    force: yes

@@ -1,0 +1,22 @@
+- name: Install Zsh.
+  include_tasks: dependencies.yml
+  package:
+    name: zsh
+    state: present
+  become: yes
+
+- name: Install Zsh configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/zsh"
+    path: "{{ config_path }}/zsh"
+    state: link
+    follow: false
+    force: yes
+
+- name: Link .zshenv file.
+  file:
+    src: "{{ dotfiles_repo_local }}/zsh/.zshenv"
+    path: "~/.zshenv"
+    state: link
+    follow: false
+    force: yes

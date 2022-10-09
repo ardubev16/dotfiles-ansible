@@ -1,0 +1,14 @@
+- name: Install Neovim.
+  include_tasks: dependencies.yml
+  package:
+    name: neovim
+    state: present
+  become: yes
+
+- name: Install Neovim configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/nvim"
+    path: "{{ config_path }}/nvim"
+    state: link
+    follow: false
+    force: yes

@@ -1,0 +1,8 @@
+- name: Installing i3 desktop environment.
+  include_tasks: 
+    - dunst.yml
+    - i3.yml
+    - picom.yml
+    - polybar.yml
+    - rofi.yml
+  when: desktop_env == "i3"

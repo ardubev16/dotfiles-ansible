@@ -1,0 +1,7 @@
+- name: Install Zsh dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - antibody

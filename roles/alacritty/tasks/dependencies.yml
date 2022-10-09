@@ -1,0 +1,9 @@
+- name: Downloading Nerd Fonts.
+  git:
+    repo: https://github.com/ryanoasis/nerd-fonts.git
+    dest: /tmp/nerd_fonts
+    depth: 1
+
+- name: Insatlling Nerd Fonts.
+  command: "/tmp/nerd_fonts/install.sh {{ item }}"
+  with_items: "{{ nerd_fonts }}"

@@ -1,0 +1,21 @@
+- name: Install general dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - bash
+    - bat
+    - cmake
+    - curl
+    - fd
+    - fzf
+    - gcc
+    - gdb
+    - gzip
+    - jq
+    - make
+    - python3
+    - ripgrep
+    - tar
+    - wget

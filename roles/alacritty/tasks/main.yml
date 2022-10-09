@@ -1,0 +1,14 @@
+- name: Install Alacritty.
+  include_tasks: dependencies.yml
+  package:
+    name: alacritty
+    state: present
+  become: yes
+
+- name: Install Alacritty configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/alacritty"
+    path: "{{ config_path }}/alacritty"
+    state: link
+    follow: false
+    force: yes

@@ -1,0 +1,35 @@
+- name: Install i3.
+  package:
+    name: i3
+    state: present
+  become: yes
+
+- name: Install i3 dependencies.
+  package:
+    name: "{{ item }}"
+    state: present
+  become: yes
+  loop:
+    - blueman
+    - feh
+    - gruvbox-dark-gtk
+    - i3lock-color
+    - i3lock-fancy
+    - lxappearance
+    - nitrogen
+    - papirus
+    - polkit-gnome
+    - scrot
+    - slop
+    - xcape
+    - xclip
+    - xsel
+    - xss-lock
+
+- name: Install i3 configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/i3-xorg/i3"
+    path: "{{ config_path }}/i3"
+    state: link
+    follow: false
+    force: yes

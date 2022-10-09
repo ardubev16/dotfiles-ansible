@@ -1,0 +1,13 @@
+- name: Install polybar.
+  package:
+    name: polybar
+    state: present
+  become: yes
+
+- name: Install polybar configs.
+  file:
+    src: "{{ dotfiles_repo_local }}/i3-xorg/polybar"
+    path: "{{ config_path }}/polybar"
+    state: link
+    follow: false
+    force: yes
