@@ -1,9 +1,17 @@
 - include_tasks: dependencies.yml
+
 - name: Install Zsh.
   package:
     name: zsh
     state: present
   become: yes
+
+- name: Set Zsh as default shell
+  become: yes
+  command: chsh -s /bin/zsh {{ lookup('env' 'USER') }}
+  register: zsh_for_user
+  failed_when: zsh_for_user.rc >= 1
+  changed_when: zsh_for_user.rc == 0
 
 - name: Install Zsh configs.
   file:
